@@ -2,12 +2,7 @@
   "crons": [
     {
       "path": "/api/cron/rotate",
-      "schedule": "* * * * *"
+      "schedule": "*/30 * * * *"
     }
-  ],
-  "functions": {
-    "app/api/cron/rotate/route.ts": {
-      "maxDuration": 30
-    }
-  }
+  ]
 }
