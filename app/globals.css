@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Minimal design system with character */
+:root {
+  --bg: #FAFAFA;
+  --text: #1A1A1A;
+  --border: #D4D4D4;
+  --danger: #DC2626;
+  --safe: #059669;
+  --muted: #525252;
+  --focus: #2563EB;
+  --accent: #F59E0B;
+}
+
+/* Base styles */
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: ui-monospace, 'SF Mono', Monaco, 'Cascadia Mono', 'Roboto Mono', monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-bold mb-3;
+    letter-spacing: -0.02em;
+  }
+
+  h1 { @apply text-3xl; }
+  h2 { @apply text-2xl; }
+  h3 { @apply text-xl; }
+  h4 { @apply text-lg; }
+
+  p {
+    @apply mb-4;
+  }
+
+  a {
+    @apply text-minimal-focus underline;
+  }
+}
+
+/* Components */
+@layer components {
+  .container {
+    @apply max-w-3xl mx-auto px-4 py-4;
+  }
+
+  .section {
+    @apply mb-8 pb-8 border-b border-minimal-border last:border-b-0;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-block px-6 py-3 border-2 border-current bg-transparent font-semibold no-underline cursor-pointer text-base;
+    @apply transition-all duration-150;
+    @apply hover:bg-current hover:text-white;
+    @apply focus:outline-2 focus:outline-minimal-focus focus:outline-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply uppercase tracking-wider;
+    touch-action: manipulation;
+    box-shadow: 3px 3px 0 currentColor;
+  }
+  
+  .btn:hover {
+    box-shadow: 1px 1px 0 currentColor;
+    transform: translate(2px, 2px);
+  }
+
+  .btn-secondary {
+    @apply btn border-minimal-muted text-minimal-muted;
+    @apply hover:border-minimal-text hover:bg-minimal-bg;
+  }
+
+  /* Stats */
+  .stats-bar {
+    @apply flex flex-wrap gap-6 text-sm text-minimal-muted;
+  }
+
+  .stats-bar strong {
+    @apply text-black font-semibold;
+  }
+
+  /* Tables */
+  .table {
+    @apply w-full border-collapse mb-4;
+  }
+
+  .table th,
+  .table td {
+    @apply p-3 text-left border-b border-minimal-border;
+  }
+
+  .table th {
+    @apply font-semibold text-sm text-minimal-muted;
+  }
+
+  /* Alerts */
+  .alert {
+    @apply p-4 mb-4 border border-minimal-border;
+  }
+
+  .alert-danger {
+    @apply border-minimal-danger text-minimal-danger;
+  }
+
+  .alert-info {
+    @apply border-minimal-focus text-minimal-focus;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-block px-2 py-1 text-xs font-semibold uppercase tracking-wider;
+  }
+
+  .badge-danger {
+    @apply text-minimal-danger border border-minimal-danger;
+  }
+
+  .badge-safe {
+    @apply text-minimal-safe border border-minimal-safe;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .text-muted {
+    @apply text-minimal-muted;
+  }
+
+  .text-danger {
+    @apply text-minimal-danger;
+  }
+
+  .text-safe {
+    @apply text-minimal-safe;
+  }
+}
+
+/* Mobile responsive */
+@media (max-width: 640px) {
+  .container {
+    @apply px-3;
+  }
+  
+  .stats-bar {
+    @apply flex-col gap-2;
+  }
+  
+  .table {
+    @apply text-sm;
+  }
+  
+  .table th,
+  .table td {
+    @apply p-2;
+  }
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

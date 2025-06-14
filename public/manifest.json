@@ -1,0 +1,27 @@
+{
+  "name": "Overwhelm",
+  "short_name": "Overwhelm",
+  "description": "Effective assembly coordination",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["social", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Join Group",
+      "short_name": "Join",
+      "description": "Join a coordination group",
+      "url": "/?action=join"
+    }
+  ]
+}
